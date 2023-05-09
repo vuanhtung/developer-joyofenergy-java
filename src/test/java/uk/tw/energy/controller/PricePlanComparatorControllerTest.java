@@ -19,12 +19,15 @@ import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static uk.tw.energy.TestData.PRICE_PLAN_1;
+import static uk.tw.energy.TestData.PRICE_PLAN_1_ID;
+import static uk.tw.energy.TestData.PRICE_PLAN_2;
+import static uk.tw.energy.TestData.PRICE_PLAN_2_ID;
+import static uk.tw.energy.TestData.PRICE_PLAN_3;
+import static uk.tw.energy.TestData.PRICE_PLAN_3_ID;
 
 public class PricePlanComparatorControllerTest {
 
-    private static final String PRICE_PLAN_1_ID = "test-supplier";
-    private static final String PRICE_PLAN_2_ID = "best-supplier";
-    private static final String PRICE_PLAN_3_ID = "second-best-supplier";
     private static final String SMART_METER_ID = "smart-meter-id";
     private PricePlanComparatorController controller;
     private MeterReadingService meterReadingService;
@@ -33,11 +36,8 @@ public class PricePlanComparatorControllerTest {
     @BeforeEach
     public void setUp() {
         meterReadingService = new MeterReadingService(new HashMap<>());
-        PricePlan pricePlan1 = new PricePlan(PRICE_PLAN_1_ID, null, BigDecimal.TEN, null);
-        PricePlan pricePlan2 = new PricePlan(PRICE_PLAN_2_ID, null, BigDecimal.ONE, null);
-        PricePlan pricePlan3 = new PricePlan(PRICE_PLAN_3_ID, null, BigDecimal.valueOf(2), null);
 
-        List<PricePlan> pricePlans = Arrays.asList(pricePlan1, pricePlan2, pricePlan3);
+        List<PricePlan> pricePlans = Arrays.asList(PRICE_PLAN_1, PRICE_PLAN_2, PRICE_PLAN_3);
         PricePlanService tariffService = new PricePlanService(pricePlans, meterReadingService);
 
         Map<String, String> meterToTariffs = new HashMap<>();

@@ -10,8 +10,8 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class AccountServiceTest {
 
-    private static final String PRICE_PLAN_ID = "price-plan-id";
-    private static final String SMART_METER_ID = "smart-meter-id";
+    public static final String PRICE_PLAN_ID = "price-plan-id";
+    public static final String SMART_METER_ID = "smart-meter-id";
 
     private AccountService accountService;
 
